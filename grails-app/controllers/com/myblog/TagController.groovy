@@ -89,6 +89,11 @@ class TagController {
             flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
             redirect(controller: "tag", action: "index")
         } else {
+            def tag = Tag.get(id)
+            def posts = [] + tag.post?: []
+            posts.each {Post post ->
+                post.removeFromTag(tag)
+            }
             response = tagService.delete(response)
             if (!response) {
                 flash.message = AppUtil.infoMessage(g.message(code: "unable.to.delete"), false)
@@ -100,3 +105,5 @@ class TagController {
     }
 
 }
+
+

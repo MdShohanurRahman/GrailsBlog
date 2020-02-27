@@ -12,6 +12,14 @@ class PostService {
     def save(GrailsParameterMap params, HttpServletRequest request) {
         Post post = new Post(params)
         post.member = authenticationService.getMember()
+
+        //save post_tag
+        Post post_tag = new Post(params)
+        post_tag.addToTag(new Tag())
+        new Tag().addToPost(post_tag)
+        post_tag.save()
+        //end post_tag
+
         def response = AppUtil.saveResponse(false, post)
         if (post.validate()) {
             post.save(flush: true)
@@ -25,6 +33,10 @@ class PostService {
 
     def update(Post post, GrailsParameterMap params){
         post.properties = params
+        Post post_tag = new Post(params)
+        post_tag.addToTag(new Tag())
+        new Tag().addToPost(post_tag)
+        post_tag.save()
         def response = AppUtil.saveResponse(false, post)
         if (post.validate()) {
             post.save(flush: true)

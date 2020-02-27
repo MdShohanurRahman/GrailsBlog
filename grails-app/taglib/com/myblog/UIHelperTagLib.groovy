@@ -43,12 +43,13 @@ class UIHelperTagLib {
         List navigations = [
                 [controller: "dashboard", action: "index", name: "dashboard"],
 
-                [controller: "post", action: "index", name: "post"],
+                [controller: "All Posts", action: "index", name: "post"],
         ]
 
         if(authenticationService.isAdministratorMember()){
             navigations.add([controller: "member", action: "index", name: "create.member"])
             navigations.add([controller: "category", action: "create", name: "create.category"])
+            navigations.add([controller: "tag", action: "create", name: "create.tag"])
             navigations.add([controller: "post", action: "create", name: "create.post"])
         }
 
@@ -65,8 +66,8 @@ class UIHelperTagLib {
     }
 
     def tags = { attrs, body ->
-        String name = attrs.name ?: "contactGroup"
-        out << g.select(class:"form-control", multiple: "multiple", optionValue: "name", optionKey: "id", value: attrs.value, name: name, from: tagService.getTagList())
+        String name = attrs.name ?: "tag"
+        out << g.select(class:"form-control tags-selector", multiple: "multiple", optionValue: "name", optionKey: "id", value: attrs.value, name: name, from: tagService.getTagList())
     }
 
 

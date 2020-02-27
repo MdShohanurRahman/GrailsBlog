@@ -47,9 +47,10 @@
 </div>
 
 <div class="form-group">
-    <label><g:message code="contact.group.name"/></label>
+    <label>Select Tags</label>
     <UIHelper:tags value="${post?.tag*.id}"/>
 </div>
+
 
 
 %{--<div class="form-group">--}%

@@ -5,9 +5,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix-core.js"></script>
 
 
-<div class="card">
-    <div class="card-header">
-        Post Update
+<div class="card center">
+    <div class="card-header">Post Update</div>
     <div class="card-body">
         <g:form controller="post" action="update">
             <g:hiddenField name="id" value="${post.id}"/>

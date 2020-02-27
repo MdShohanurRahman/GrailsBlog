@@ -14,8 +14,23 @@
 
                 <h1>Description</h1>
                 <%=post.description%><br>
-                <h6>Category : ${post.category.name}</h6>
+
             </g:if>
+
+            <div class="category">
+                <h4>Category : ${post.category.name}</h4>
+            </div>
+
+            <div class="tags">
+                <h4>Post Tags :</h4>
+                <g:if test = "${post.tag}">
+                    <g:each var = "t" in ="${post.tag}">
+                        <span class="badge badge-dark"> ${t.name}</span>
+                    </g:each>
+
+                </g:if>
+
+            </div>
         </div>
         <div class="col-md-6">
             <g:if test="${post.image}">
