@@ -43,7 +43,7 @@ class UIHelperTagLib {
         List navigations = [
                 [controller: "dashboard", action: "index", name: "dashboard"],
 
-                [controller: "All Posts", action: "index", name: "post"],
+                [controller: "posts", action: "index", name: "post"],
         ]
 
         if(authenticationService.isAdministratorMember()){

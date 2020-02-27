@@ -35,7 +35,6 @@
         <div class="col-md-6">
             <g:if test="${post.image}">
             <img src="${resource(dir: "contact-image", file: "/${post.id}-${post.image}")}" class="img-thumbnail w-50" />
-
             </g:if>
             <g:else>
             <g:img dir="images" file="blog.jpg" class="profile-img w-25"/>
